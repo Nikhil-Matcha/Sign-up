@@ -55,9 +55,16 @@
 							<br />
 							<input type="submit" name="Sign-in" value="Sign-In" />
 						</form>
-
+						<br />
+						<div>Not Registered? &nbsp;
+							<button onClick={this.signUp}>Sign-Up</button>
+						</div>
 					</div>
 				);
+			}
+
+			signUp = () => {
+				ReactDOM.render(<SignUp />, document.getElementById("app"));
 			}
 
 			handleChange = (event) => {
@@ -73,6 +80,9 @@
 				var temp = JSON.parse(localStorage.getItem(email));
 				if(temp["pwd"] == password){
 					document.querySelector("#app").innerHTML = "<p>Hello " + temp["name"] + "<br>" + "You are currently logged in as " + email + "</p>";
+				}
+				else{
+					alert("Your email or password is incorrect!!")
 				}
 			}
 		}
@@ -106,8 +116,16 @@
 							<br />
 							<input type="submit" name="Sign-up" value="Sign-Up" />
 						</form>
+						<br />
+						<div>Already Registered? &nbsp;
+							<button onClick={this.signIn}>Sign-In</button>
+						</div>
 					</div>
 				);
+			}
+
+			signIn = () => {
+				ReactDOM.render(<SignIn />, document.getElementById("app"));
 			}
 
 			handleChange = (event) => {
